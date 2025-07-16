@@ -3,104 +3,104 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DATOS DE LA APLICACIÓN ---
     const SECCIONES = [
         {
-            id: 1, title: 'Fundamentos y Visión',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
-            questions: [
-                { id: '1_1', text: '¿Qué impulsa tu negocio?', options: [{ value: 'A', text: 'Demanda validada del mercado (con datos)' }, { value: 'B', text: 'Pasión personal (me encanta, pero no sé si hay mercado)' }, { value: 'C', text: 'Seguir tendencias (otros lo hacen)' }, { value: 'D', text: 'Creció accidentalmente (sin visión intencional)' }] },
-                { id: '1_2', text: '¿Cómo mides el éxito?', options: [{ value: 'A', text: 'Rentabilidad + sistemas sostenibles' }, { value: 'B', text: 'Reconocimiento de marca' }, { value: 'C', text: 'Libertad personal (tiempo/ingresos)' }, { value: 'D', text: 'Todavía lo estoy definiendo' }] }
-            ]
-        },
-        {
-            id: 2, title: 'Estructura y Operaciones',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>',
-            questions: [
-                { id: '2_1', text: '¿Cómo se delegan las tareas?', options: [{ value: 'A', text: 'Roles claros/SOPs documentados' }, { value: 'B', text: '"Quien esté libre" (improvisado)' }, { value: 'C', text: 'Yo hago todo lo crítico' }, { value: 'D', text: 'Caos total' }] },
-                { id: '2_2', text: 'Si te ausentaras un mes, ¿las operaciones continuarían?', options: [{ value: 'A', text: 'Sí (equipo autónomo)' }, { value: 'B', text: 'Mayormente (con supervisión mínima)' }, { value: 'C', text: 'No (todo colapsaría)' }, { value: 'D', text: 'No tengo equipo' }] }
-            ]
-        },
-        {
-            id: 3, title: 'Productividad y Gestión del Tiempo',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
-            questions: [
-                { id: '3_1', text: '¿Cuál es tu mayor fuga de productividad?', options: [{ value: 'A', text: 'Reuniones/correos' }, { value: 'B', text: 'Redes sociales/distracciones' }, { value: 'C', text: 'Tareas de bajo valor (delegables)' }, { value: 'D', text: 'Sobreplanificar, poco ejecutar' }] },
-                { id: '3_2', text: '¿Cómo priorizas el trabajo?', options: [{ value: 'A', text: 'Por ROI (impacto económico)' }, { value: 'B', text: 'Urgencia (apagar incendios)' }, { value: 'C', text: 'Estado de ánimo (lo que "apetece")' }, { value: 'D', text: 'Sin sistema' }] }
-            ]
-        },
-        {
-            id: 4, title: 'Salud Financiera',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6v12h20V6H2zM20 12H4"></path><path d="M16 6v12"></path><path d="M8 6v12"></path></svg>',
-            questions: [
-                { id: '4_1', text: '¿Con qué frecuencia revisas finanzas?', options: [{ value: 'A', text: 'Semanalmente (detallado)' }, { value: 'B', text: 'Mensualmente (general)' }, { value: 'C', text: 'Solo en impuestos' }, { value: 'D', text: 'Lo evito (me estresa)' }] },
-                { id: '4_2', text: 'Tu flujo de caja es...', options: [{ value: 'A', text: 'Estable (6+ meses de reserva)' }, { value: 'B', text: 'Ajustado (sobrevives mes a mes)' }, { value: 'C', text: 'Impredecible' }, { value: 'D', text: 'No lo registro' }] }
-            ]
-        },
-        {
-            id: 5, title: 'Marketing y Ventas',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v10L3 11z"></path><path d="M21 6l-4 3.5"></path><path d="M21 16l-4-3.5"></path><path d="M3 11v4a2 2 0 002 2h14"></path></svg>',
-            questions: [
-                { id: '5_1', text: '¿Cómo atraes clientes?', options: [{ value: 'A', text: 'Campañas basadas en datos' }, { value: 'B', text: 'Orgánico (boca a boca)' }, { value: 'C', text: 'Esfuerzos aleatorios' }, { value: 'D', text: 'Batallo para conseguir leads' }] },
-                { id: '5_2', text: 'Tu proceso de ventas es...', options: [{ value: 'A', text: 'Sistematizado (replicable)' }, { value: 'B', text: 'Depende de relaciones personales' }, { value: 'C', text: 'Inconsistente' }, { value: 'D', text: 'No existe' }] }
-            ]
-        },
-        {
-            id: 6, title: 'Protección Legal',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-            questions: [
-                { id: '6_1', text: '¿Qué tan protegido está tu negocio legalmente?', options: [{ value: 'A', text: 'Totalmente (revisado por abogado)' }, { value: 'B', text: 'Uso plantillas básicas' }, { value: 'C', text: 'Ignoro los riesgos' }, { value: 'D', text: 'No tengo idea' }] }
-            ]
-        },
-        {
-            id: 7, title: 'Identidad de Marca',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l12 18-6-6-6 6z"></path><path d="M12 3v12"></path></svg>',
-            questions: [
-                { id: '7_1', text: 'Tu marca destaca porque...', options: [{ value: 'A', text: 'Propuesta de valor única y clara' }, { value: 'B', text: 'Identidad visual fuerte' }, { value: 'C', text: '"Somos más baratos/simpáticos"' }, { value: 'D', text: 'No hay diferenciación' }] }
-            ]
-        },
-        {
-            id: 8, title: 'Servicio al Cliente',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5.597c.53-.51 1.23-.8 2-.8.82 0 1.5.3 2 .8"></path></svg>',
-            questions: [
-                { id: '8_1', text: '¿Cómo manejas quejas?', options: [{ value: 'A', text: 'Sistematizado (FAQs, chatbots)' }, { value: 'B', text: 'Respondo personalmente todo' }, { value: 'C', text: 'Reactivo (solo cuando escalan)' }, { value: 'D', text: 'Rara vez recibo feedback' }] }
-            ]
-        },
-        {
-            id: 9, title: 'Tecnología y Herramientas',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"></path></svg>',
-            questions: [
-                { id: '9_1', text: 'Tu stack tecnológico es...', options: [{ value: 'A', text: 'Optimizado (ahorra tiempo/recursos)' }, { value: 'B', text: 'Parches (algunas herramientas útiles)' }, { value: 'C', text: 'Obsoleto/ineficiente' }, { value: 'D', text: 'No existe (uso Excel/papel)' }] }
-            ]
-        },
-        {
-            id: 10, title: 'Crecimiento e Innovación',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.3.05-3.1S5.21 15.66 4.5 16.5z"></path><path d="M17.5 7.5c1.5-1.26 2-5 2-5s-3.74.5-5 2c-.71.84-.7 2.3-.05 3.1s2.31.84 3.05-.01z"></path><path d="M21.5 21.5L12 12l-9.5 9.5"></path></svg>',
-            questions: [
-                { id: '10_1', text: '¿Cuándo innovaste por última vez?', options: [{ value: 'A', text: 'Último trimestre (probé algo nuevo)' }, { value: 'B', text: 'Hace más de un año' }, { value: 'C', text: 'Copio a competidores' }, { value: 'D', text: '"Si funciona, no lo toco"' }] }
-            ]
-        },
-        {
-            id: 11, title: 'Preparación en IA',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2z"></path><path d="M12 12a1 1 0 100-2 1 1 0 000 2z"></path><path d="M12 18a1 1 0 100-2 1 1 0 000 2z"></path><path d="M7 13a1 1 0 10-2 0 1 1 0 002 0z"></path><path d="M17 13a1 1 0 10-2 0 1 1 0 002 0z"></path><path d="M8 9a1 1 0 10-2 0 1 1 0 002 0z"></path><path d="M16 9a1 1 0 10-2 0 1 1 0 002 0z"></path></svg>',
-            questions: [
-                { id: '11_1', text: 'Uso de IA en tu negocio:', options: [{ value: 'A', text: 'Automatizo procesos clave' }, { value: 'B', text: 'Pruebo herramientas puntuales' }, { value: 'C', text: 'No sé cómo aplicarla' }, { value: 'D', text: '"No es relevante para mí"' }] },
-                { id: '11_2', text: 'Herramientas de IA que usas:', options: [{ value: 'A', text: 'ChatGPT, Midjourney, análisis predictivo' }, { value: 'B', text: 'Solo Grammarly/Canva AI' }, { value: 'C', text: 'Ninguna' }, { value: 'D', text: '"No entiendo la IA"' }] }
-            ]
-        },
-        {
-            id: 12, title: 'Infraestructura Digital',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"></path><path d="M1.42 9a16 16 0 0121.16 0"></path><path d="M8.53 16.11a6 6 0 016.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>',
-            questions: [
-                { id: '12_1', text: 'Tu dispositivo principal es:', options: [{ value: 'A', text: 'Laptop/PC de alto rendimiento' }, { value: 'B', text: 'Tablet/dispositivo antiguo' }, { value: 'C', text: 'Solo teléfono móvil' }, { value: 'D', text: 'Comparto/pidiendo prestado' }] },
-                { id: '12_2', text: 'Estabilidad de tu conexión a internet:', options: [{ value: 'A', text: 'Fibra óptica (siempre estable)' }, { value: 'B', text: 'A veces falla' }, { value: 'C', text: 'Dependo de WiFi público' }, { value: 'D', text: '"Es un problema constante"' }] }
-            ]
-        },
-        {
-            id: 13, title: 'Presupuesto y Recursos',
-            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 01-2-2V3h14v4l4 4z"></path><path d="M3 5v14a2 2 0 002 2h16v-5h-4a2 2 0 01-2-2v-2"></path></svg>',
-            questions: [
-                { id: '13_1', text: 'Presupuesto mensual para crecimiento:', options: [{ value: 'A', text: '$500+ (inversión activa)' }, { value: 'B', text: '$100-$500 (lo básico)' }, { value: 'C', text: 'Menos de $100' }, { value: 'D', text: '"No tengo presupuesto"' }] },
-                { id: '13_2', text: 'Horas semanales para estrategia:', options: [{ value: 'A', text: '20+ horas (dedicación total)' }, { value: 'B', text: '5-10 horas (entre otras tareas)' }, { value: 'C', text: 'Menos de 5 horas' }, { value: 'D', text: '"Solo apago incendios"' }] }
-            ]
-        }
+    id: 1, title: 'Fundamentos y Visión',
+    icon: 'circle-dot', // Replaced target icon with concentric circles
+    questions: [
+        { id: '1_1', text: '¿Qué impulsa tu negocio?', options: [{ value: 'A', text: 'Demanda validada del mercado (con datos)' }, { value: 'B', text: 'Pasión personal (me encanta, pero no sé si hay mercado)' }, { value: 'C', text: 'Seguir tendencias (otros lo hacen)' }, { value: 'D', text: 'Creció accidentalmente (sin visión intencional)' }] },
+        { id: '1_2', text: '¿Cómo mides el éxito?', options: [{ value: 'A', text: 'Rentabilidad + sistemas sostenibles' }, { value: 'B', text: 'Reconocimiento de marca' }, { value: 'C', text: 'Libertad personal (tiempo/ingresos)' }, { value: 'D', text: 'Todavía lo estoy definiendo' }] }
+    ]
+},
+{
+    id: 2, title: 'Estructura y Operaciones',
+    icon: 'panel-top', // Replaced 4-square grid icon
+    questions: [
+        { id: '2_1', text: '¿Cómo se delegan las tareas?', options: [{ value: 'A', text: 'Roles claros/SOPs documentados' }, { value: 'B', text: '"Quien esté libre" (improvisado)' }, { value: 'C', text: 'Yo hago todo lo crítico' }, { value: 'D', text: 'Caos total' }] },
+        { id: '2_2', text: 'Si te ausentaras un mes, ¿las operaciones continuarían?', options: [{ value: 'A', text: 'Sí (equipo autónomo)' }, { value: 'B', text: 'Mayormente (con supervisión mínima)' }, { value: 'C', text: 'No (todo colapsaría)' }, { value: 'D', text: 'No tengo equipo' }] }
+    ]
+},
+{
+    id: 3, title: 'Productividad y Gestión del Tiempo',
+    icon: 'clock', // Replaced clock icon
+    questions: [
+        { id: '3_1', text: '¿Cuál es tu mayor fuga de productividad?', options: [{ value: 'A', text: 'Reuniones/correos' }, { value: 'B', text: 'Redes sociales/distracciones' }, { value: 'C', text: 'Tareas de bajo valor (delegables)' }, { value: 'D', text: 'Sobreplanificar, poco ejecutar' }] },
+        { id: '3_2', text: '¿Cómo priorizas el trabajo?', options: [{ value: 'A', text: 'Por ROI (impacto económico)' }, { value: 'B', text: 'Urgencia (apagar incendios)' }, { value: 'C', text: 'Estado de ánimo (lo que "apetece")' }, { value: 'D', text: 'Sin sistema' }] }
+    ]
+},
+{
+    id: 4, title: 'Salud Financiera',
+    icon: 'dollar-sign', // Replaced financial icon
+    questions: [
+        { id: '4_1', text: '¿Con qué frecuencia revisas finanzas?', options: [{ value: 'A', text: 'Semanalmente (detallado)' }, { value: 'B', text: 'Mensualmente (general)' }, { value: 'C', text: 'Solo en impuestos' }, { value: 'D', text: 'Lo evito (me estresa)' }] },
+        { id: '4_2', text: 'Tu flujo de caja es...', options: [{ value: 'A', text: 'Estable (6+ meses de reserva)' }, { value: 'B', text: 'Ajustado (sobrevives mes a mes)' }, { value: 'C', text: 'Impredecible' }, { value: 'D', text: 'No lo registro' }] }
+    ]
+},
+{
+    id: 5, title: 'Marketing y Ventas',
+    icon: 'megaphone', // Replaced marketing icon
+    questions: [
+        { id: '5_1', text: '¿Cómo atraes clientes?', options: [{ value: 'A', text: 'Campañas basadas en datos' }, { value: 'B', text: 'Orgánico (boca a boca)' }, { value: 'C', text: 'Esfuerzos aleatorios' }, { value: 'D', text: 'Batallo para conseguir leads' }] },
+        { id: '5_2', text: 'Tu proceso de ventas es...', options: [{ value: 'A', text: 'Sistematizado (replicable)' }, { value: 'B', text: 'Depende de relaciones personales' }, { value: 'C', text: 'Inconsistente' }, { value: 'D', text: 'No existe' }] }
+    ]
+},
+{
+    id: 6, title: 'Protección Legal',
+    icon: 'scale', // Replaced shield icon
+    questions: [
+        { id: '6_1', text: '¿Qué tan protegido está tu negocio legalmente?', options: [{ value: 'A', text: 'Totalmente (revisado por abogado)' }, { value: 'B', text: 'Uso plantillas básicas' }, { value: 'C', text: 'Ignoro los riesgos' }, { value: 'D', text: 'No tengo idea' }] }
+    ]
+},
+{
+    id: 7, title: 'Identidad de Marca',
+    icon: 'award', // Replaced brand identity icon
+    questions: [
+        { id: '7_1', text: 'Tu marca destaca porque...', options: [{ value: 'A', text: 'Propuesta de valor única y clara' }, { value: 'B', text: 'Identidad visual fuerte' }, { value: 'C', text: '"Somos más baratos/simpáticos"' }, { value: 'D', text: 'No hay diferenciación' }] }
+    ]
+},
+{
+    id: 8, title: 'Servicio al Cliente',
+    icon: 'users-2', // Replaced heart icon
+    questions: [
+        { id: '8_1', text: '¿Cómo manejas quejas?', options: [{ value: 'A', text: 'Sistematizado (FAQs, chatbots)' }, { value: 'B', text: 'Respondo personalmente todo' }, { value: 'C', text: 'Reactivo (solo cuando escalan)' }, { value: 'D', text: 'Rara vez recibo feedback' }] }
+    ]
+},
+{
+    id: 9, title: 'Tecnología y Herramientas',
+    icon: 'zap', // Replaced tools icon
+    questions: [
+        { id: '9_1', text: 'Tu stack tecnológico es...', options: [{ value: 'A', text: 'Optimizado (ahorra tiempo/recursos)' }, { value: 'B', text: 'Parches (algunas herramientas útiles)' }, { value: 'C', text: 'Obsoleto/ineficiente' }, { value: 'D', text: 'No existe (uso Excel/papel)' }] }
+    ]
+},
+{
+    id: 10, title: 'Crecimiento e Innovación',
+    icon: 'trending-up', // Replaced growth icon
+    questions: [
+        { id: '10_1', text: '¿Cuándo innovaste por última vez?', options: [{ value: 'A', text: 'Último trimestre (probé algo nuevo)' }, { value: 'B', text: 'Hace más de un año' }, { value: 'C', text: 'Copio a competidores' }, { value: 'D', text: '"Si funciona, no lo toco"' }] }
+    ]
+},
+{
+    id: 11, title: 'Preparación en IA',
+    icon: 'bot', // Replaced AI icon
+    questions: [
+        { id: '11_1', text: 'Uso de IA en tu negocio:', options: [{ value: 'A', text: 'Automatizo procesos clave' }, { value: 'B', text: 'Pruebo herramientas puntuales' }, { value: 'C', text: 'No sé cómo aplicarla' }, { value: 'D', text: '"No es relevante para mí"' }] },
+        { id: '11_2', text: 'Herramientas de IA que usas:', options: [{ value: 'A', text: 'ChatGPT, Midjourney, análisis predictivo' }, { value: 'B', text: 'Solo Grammarly/Canva AI' }, { value: 'C', text: 'Ninguna' }, { value: 'D', text: '"No entiendo la IA"' }] }
+    ]
+},
+{
+    id: 12, title: 'Infraestructura Digital',
+    icon: 'wifi', // Replaced digital infrastructure icon
+    questions: [
+        { id: '12_1', text: 'Tu dispositivo principal es:', options: [{ value: 'A', text: 'Laptop/PC de alto rendimiento' }, { value: 'B', text: 'Tablet/dispositivo antiguo' }, { value: 'C', text: 'Solo teléfono móvil' }, { value: 'D', text: 'Comparto/pidiendo prestado' }] },
+        { id: '12_2', text: 'Estabilidad de tu conexión a internet:', options: [{ value: 'A', text: 'Fibra óptica (siempre estable)' }, { value: 'B', text: 'A veces falla' }, { value: 'C', text: 'Dependo de WiFi público' }, { value: 'D', text: '"Es un problema constante"' }] }
+    ]
+},
+{
+    id: 13, title: 'Presupuesto y Recursos',
+    icon: 'book-open-check', // Replaced budget icon
+    questions: [
+        { id: '13_1', text: 'Presupuesto mensual para crecimiento:', options: [{ value: 'A', text: '$500+ (inversión activa)' }, { value: 'B', text: '$100-$500 (lo básico)' }, { value: 'C', text: 'Menos de $100' }, { value: 'D', text: '"No tengo presupuesto"' }] },
+        { id: '13_2', text: 'Horas semanales para estrategia:', options: [{ value: 'A', text: '20+ horas (dedicación total)' }, { value: 'B', text: '5-10 horas (entre otras tareas)' }, { value: 'C', text: 'Menos de 5 horas' }, { value: 'D', text: '"Solo apago incendios"' }] }
+    ]
+}
     ];
     
     const PUNTUACIONES = { 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
