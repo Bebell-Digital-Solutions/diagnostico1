@@ -1,3 +1,12 @@
+import { 
+  CircleDot, PanelTop, Clock, DollarSign, Megaphone, 
+  Scale, Award, Users2, Zap, TrendingUp, 
+  Bot, Wifi, BookOpenCheck 
+} from 'lucide';
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- DATOS DE LA APLICACIÓN ---
