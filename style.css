@@ -1,3 +1,4 @@
+
 :root {
     --primary-color: #DF1783;
     --primary-color-light: #fce4f3;
@@ -151,9 +152,8 @@ input:checked + .slider:before { transform: translateX(20px); }
     gap: 0.75rem;
     padding: 1rem 1.5rem;
 }
-.title-content svg {
-    width: 28px;
-    height: 28px;
+.title-content .lucide {
+    font-size: 28px;
     flex-shrink: 0;
 }
 
