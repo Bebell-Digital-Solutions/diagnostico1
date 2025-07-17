@@ -1,3 +1,7 @@
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
 import { 
   CircleDot, PanelTop, Clock, DollarSign, Megaphone, 
   Scale, Award, Users2, Zap, TrendingUp, 
@@ -7,7 +11,7 @@ import {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+
 
     // --- DATOS DE LA APLICACIÓN ---
     const SECCIONES = [
